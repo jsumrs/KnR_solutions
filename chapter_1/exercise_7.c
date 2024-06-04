@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(){
-	int eof = EOF;
-	printf("%d",eof);
+int main(void) {
+  printf("%d\n", EOF);
+  return 0;
 }
