@@ -1,20 +1,21 @@
+// This program prints the input, one word on one line at a time.
+
 #include <stdio.h>
 
-int main(){
-  #define IN 1 //inside a word
-  #define OUT 0 // outside a word
-  int c;
-  int state = IN;
+#define IN 1      // Inside a word.
+#define OUT 0     // Outside a word.
 
-  while ((c = getchar()) != EOF){
-    if (c == '\t' || c == ' '){
-      if (state == IN){
-        putchar('\n');
-      }
-      state = OUT;
-    } else {
+int main(void) {
+  int c;
+
+  while ( ( c = getchar() ) != EOF ) {
+    if (c == ' ') { 
+      putchar('\n');
+    }
+    else { 
       putchar(c);
-      state = IN;
-     }
+    }
   }
+
+  return 0;
 }

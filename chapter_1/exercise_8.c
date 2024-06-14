@@ -1,16 +1,18 @@
+// The purpose of this exercise is to write a program that counts newlines and tabs.
+
 #include <stdio.h>
 
-int main(){
-	int c, b, t, n;
-	b = t = n = 0;
-	while ((c = getchar()) != EOF){
-		if (c == ' '){
-			b++;
-		} else if (c == '\n'){
-			n++;
-		} else if (c == '\t'){
-			t++;
-		}
-	}
-	printf("Blanks: %d\nNewlines: %d\nTabs: %d", b, n, t);
+int main(void) {
+  long nl, tb, in;
+
+  while( (in = getchar()) != EOF) {
+    if (in == '\n'){
+      ++nl;
+    } else if (in == '\t') {
+      ++tb;
+    }
+  }
+
+  printf("\n# of newlines: %ld\n# of tabs: %ld\n", nl, tb);
+  return 0;
 }
