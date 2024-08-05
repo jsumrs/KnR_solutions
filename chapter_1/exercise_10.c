@@ -1,19 +1,18 @@
+// This program makes newlines and tabs visible.
 #include <stdio.h>
 
-int main(){
-	int c;
-	while ((c = getchar()) != EOF){
-		if (c == '\b') {
+int main(void) {
+  int c;
+
+  while( (c = getchar()) != EOF ) {
+    if (c == '\n') {
       putchar('\\');
-      putchar('b');
-		} else if (c == '\t') {
+      putchar('n');
+    } else if (c == '\t') {
       putchar('\\');
       putchar('t');
-    } else if (c == '\\') {
-      putchar('\\');
-      putchar('\\');
-    } else {
-      putchar(c);
-      }
-	}
+    }
+  }
+
+  return 0;
 }
