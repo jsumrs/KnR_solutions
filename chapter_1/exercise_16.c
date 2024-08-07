@@ -12,7 +12,6 @@ int main() {
   char longest[MAXLINE]; /* longest line saved here */
 
   while( (len = get_line(line, MAXLINE)) > 0 ) {
-    printf("inside whileloop");
     if (len > max) {
       max = len;
       copy(longest, line);
@@ -28,7 +27,6 @@ int main() {
 
 /* get_line: read a line into string_array, return its length */
 int get_line(char string_array[], int lim) {
-  printf("calling getline");
   int c, i;
   for (i = 0; i < lim - 1 && (c=getchar()) != EOF && c != '\n'; i++) {
     string_array[i] = c;
