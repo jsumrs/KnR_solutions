@@ -51,7 +51,7 @@ void copy(char to[], char from[]) {
 }
 
 void reverse(char string[], int len) {
-  for (int i = 0; i < (len - 1) / 2; i++) {
+  for (int i = 0; i < len / 2; i++) {
     int temp = string[i];
     int back = len - i - 1;
     string[i] = string[back];
