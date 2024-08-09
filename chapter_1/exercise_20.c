@@ -25,31 +25,24 @@ int main() {
 /* get_line: read a line into string_array, return its length */
 int get_line(char string_array[], int lim) {
   int c, i;
-  int space_counter = 0;
-  for (i = 0; i < lim - 1 && (c=getchar()) != EOF && c != '\n'; i++) {
-    if (c == ' ') space_counter++;
+  int col = 0;
+  for (i = 0; i < lim - 1 && (c=getchar()) != EOF && c != '\n'; ++col) {
     if (c == '\t') {
-      for (int j = i; j < i + TABSTOP - space_counter - 1; j++) {
-        string_array[j] = '0';
-        print_array(string_array, lim);
+      int spaces = TABSTOP - (col % TABSTOP);
+      for (int j = 0; j < spaces && i < lim - 1; ++j, ++i) {
+        string_array[i] = ' ';
       }
-      i += TABSTOP - space_counter - 1;
-      space_counter = 0;
+      --i;
     } else {
-      string_array[i] = c;
+      string_array[i++] = c;
     }
   }
 
   if (c == '\n') {
-    string_array[i] = c;
-    i++;
+    string_array[i++] = c;
   }
   
   string_array[i] = '\0';
-
-  while ((c = getchar()) != '\n' && c != EOF) {
-    i++;
-  }
   return i; 
 }
 
